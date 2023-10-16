@@ -9,10 +9,13 @@ const make_route = 'make'
 const add_route = 'add';
 const get_route = 'patients/'
 const params = '?request='
-
+const get = "GET";
+const post = "POST";
+const select = "SELECT";
+const insert = "INSERT";
 
 function myFunc() {
-  xhttp.open('POST', endpoint + make_route, true);
+  xhttp.open(post, endpoint + make_route, true);
   xhttp.send();
   xhttp.onreadystatechange = function () {
     if (xhttp.readyState === 4) {
@@ -27,8 +30,8 @@ function myFunc() {
 function getQuery() {
   const queryValue = queryInput.value;
   const words = queryValue.split(" ");
-  if (words[0] === "SELECT") {
-    xhttp.open("GET", endpoint + get_route + params + queryValue, true);
+  if (words[0] === select) {
+    xhttp.open(get, endpoint + get_route + params + queryValue, true);
     xhttp.send();
     xhttp.onreadystatechange = function () {
       if (xhttp.readyState === 4) {
@@ -41,11 +44,11 @@ function getQuery() {
         }
       }
     };
-  } else if (words[0] === "INSERT") {
+  } else if (words[0] === insert) {
     const data = {
       request: queryValue
     };
-    xhttp.open("POST", endpoint + add_route, true);
+    xhttp.open(post, endpoint + add_route, true);
     xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     xhttp.send(JSON.stringify(data));
     xhttp.onreadystatechange = function () {
