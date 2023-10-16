@@ -4,7 +4,7 @@ const querySubmit = document.getElementById('query');
 
 const xhttp = new XMLHttpRequest();
 
-const endpoint = 'https://comp4537-lab5-backend-xbdy.onrender.com/'
+const endpoint = 'https://backend-eaf1.onrender.com'
 const make_route = 'make'
 const add_route = 'add';
 const get_route = 'patients/'
